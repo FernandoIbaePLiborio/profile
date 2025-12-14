@@ -69,7 +69,7 @@ function sendMail() {
         Contact Details
     
         Name: ${this.name.value}
-        Fone: ${this.fone.value}
+        Fone: ${this.phone.value}
         Email: ${this.email.value}
         Message: ${this.textMessage.value}
         
