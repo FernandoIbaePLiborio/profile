@@ -103,6 +103,20 @@ var Email = {
     }
 };
 
+/* Send WhatsApp */
+function sendWhatsapp() {
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const subject = document.getElementById('subject').value;
+    const phone = document.getElementById('phone').value;
+    const message = document.getElementById('textMessage').value;
+
+    const whatsappMessage = `Olá, meu nome é ${name}. Email: ${email}. Assunto: ${subject}. Telefone: ${phone}. Mensagem: ${message}`;
+    const whatsappUrl = `https://wa.me/5541999830281?text=${encodeURIComponent(whatsappMessage)}`;
+
+    window.open(whatsappUrl, '_blank');
+}
+
 /* Modal Confirm */
 function modalSet(id, msg) {
     const submitBtn = document.getElementById('btnSendMail');
@@ -152,10 +166,13 @@ function validateFields() {
 function validator(count) {
     const invalidForm = document.querySelector('form:invalid');
     const submitBtn = document.getElementById('btnSendMail');
+    const whatsappBtn = document.getElementById('btnSendWhatsapp');
     if (invalidForm || count != '') {
         submitBtn.setAttribute('disabled', true);
+        whatsappBtn.setAttribute('disabled', true);
     } else {
         submitBtn.disabled = false;
+        whatsappBtn.disabled = false;
     }
 }
 
